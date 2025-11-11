@@ -1,63 +1,46 @@
 import { Users, Building2, Leaf, Shield } from "lucide-react";
-
-const impacts = [
-  {
-    icon: Users,
-    title: "Tourists",
-    benefits: [
-      "Personalized journeys tailored to preferences",
-      "Real-time safety alerts and hazard detection",
-      "Multilingual support in local languages",
-      "Optimized travel times avoiding crowds",
-    ],
-    color: "from-gradient-start to-gradient-mid",
-  },
-  {
-    icon: Shield,
-    title: "Government Authorities",
-    benefits: [
-      "Data-driven policy making and planning",
-      "Resource optimization at pilgrim sites",
-      "Emergency response coordination",
-      "Infrastructure improvement insights",
-    ],
-    color: "from-gradient-mid to-gradient-end",
-  },
-  {
-    icon: Building2,
-    title: "Local Businesses",
-    benefits: [
-      "Increased visibility to tourists",
-      "Demand forecasting for inventory",
-      "Customer sentiment analysis",
-      "Marketing through AI recommendations",
-    ],
-    color: "from-gradient-end to-accent",
-  },
-  {
-    icon: Leaf,
-    title: "Environment",
-    benefits: [
-      "Reduced carbon footprint via route optimization",
-      "Protection of fragile ecosystems",
-      "Waste management through crowd control",
-      "Sustainable tourism practices",
-    ],
-    color: "from-accent to-gradient-start",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Impact = () => {
+  const { t } = useLanguage();
+
+  const impacts = [
+    {
+      icon: Users,
+      titleKey: "impact.1.title",
+      descKey: "impact.1.desc",
+      color: "from-gradient-start to-gradient-mid",
+    },
+    {
+      icon: Shield,
+      titleKey: "impact.2.title",
+      descKey: "impact.2.desc",
+      color: "from-gradient-mid to-gradient-end",
+    },
+    {
+      icon: Building2,
+      titleKey: "impact.3.title",
+      descKey: "impact.3.desc",
+      color: "from-gradient-end to-accent",
+    },
+    {
+      icon: Leaf,
+      titleKey: "impact.4.title",
+      descKey: "impact.4.desc",
+      color: "from-accent to-gradient-start",
+    },
+  ];
+
   return (
     <section id="impact" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Creating <span className="gradient-text">Lasting Impact</span>
+            {t("impact.title")}
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Transforming tourism for everyone in the Uttarakhand ecosystem
+            {t("impact.subtitle")}
           </p>
         </div>
 
@@ -78,19 +61,14 @@ export const Impact = () => {
                     <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-semibold group-hover:gradient-text transition-colors">
-                    {impact.title}
+                    {t(impact.titleKey)}
                   </h3>
                 </div>
 
-                {/* Benefits List */}
-                <ul className="space-y-3">
-                  {impact.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start space-x-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                      <span className="text-muted-foreground leading-relaxed">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Description */}
+                <p className="text-muted-foreground leading-relaxed">
+                  {t(impact.descKey)}
+                </p>
               </div>
             );
           })}

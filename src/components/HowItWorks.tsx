@@ -1,40 +1,40 @@
 import { Database, Cpu, Lightbulb } from "lucide-react";
-
-const steps = [
-  {
-    icon: Database,
-    title: "Data Collection",
-    description:
-      "Aggregate data from tourist visits, weather APIs, social media sentiment, government databases, and IoT sensors across Uttarakhand.",
-    number: "01",
-  },
-  {
-    icon: Cpu,
-    title: "AI Analysis",
-    description:
-      "Process data using NLP for chatbots and sentiment analysis, Computer Vision for image recognition, and Predictive Modeling for crowd forecasting.",
-    number: "02",
-  },
-  {
-    icon: Lightbulb,
-    title: "Actionable Insights",
-    description:
-      "Deliver personalized recommendations, real-time alerts, interactive dashboards, and multilingual assistance through web and mobile platforms.",
-    number: "03",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const HowItWorks = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      icon: Database,
+      titleKey: "howitworks.step1",
+      descKey: "howitworks.step1.desc",
+      number: "01",
+    },
+    {
+      icon: Cpu,
+      titleKey: "howitworks.step2",
+      descKey: "howitworks.step2.desc",
+      number: "02",
+    },
+    {
+      icon: Lightbulb,
+      titleKey: "howitworks.step3",
+      descKey: "howitworks.step3.desc",
+      number: "03",
+    },
+  ];
+
   return (
     <section className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            How <span className="gradient-text">It Works</span>
+            {t("howitworks.title")}
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            A simple three-step process powered by advanced AI technologies
+            {t("howitworks.subtitle")}
           </p>
         </div>
 
@@ -65,10 +65,10 @@ export const HowItWorks = () => {
                   {/* Content */}
                   <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl sm:text-3xl font-semibold mb-3 group-hover:gradient-text transition-colors">
-                      {step.title}
+                      {t(step.titleKey)}
                     </h3>
                     <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl">
-                      {step.description}
+                      {t(step.descKey)}
                     </p>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export const HowItWorks = () => {
 
         {/* Tech Stack */}
         <div className="mt-16 sm:mt-20 text-center">
-          <h3 className="text-xl sm:text-2xl font-semibold mb-8">Powered By</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold mb-8">{t("howitworks.tech")}</h3>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-12">
             {[
               { name: "Python", color: "text-[#3776AB]" },

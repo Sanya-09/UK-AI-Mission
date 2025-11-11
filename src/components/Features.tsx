@@ -1,54 +1,52 @@
 import { Brain, Users, Shield, TrendingUp, MapPin } from "lucide-react";
-
-const features = [
-  {
-    icon: MapPin,
-    title: "Personalized Himalayan Journeys",
-    description:
-      "AI-curated itineraries based on preferences, weather, crowd levels, and accessibility. Discover hidden gems tailored just for you.",
-    gradient: "from-gradient-start to-gradient-mid",
-  },
-  {
-    icon: Users,
-    title: "Tourist Flow & Pilgrim Prediction",
-    description:
-      "Real-time crowd forecasting at key sites like Kedarnath, Badrinath. Plan visits during optimal times for a peaceful experience.",
-    gradient: "from-gradient-mid to-gradient-end",
-  },
-  {
-    icon: Shield,
-    title: "Visual Recognition for Safety",
-    description:
-      "Identify medicinal plants, detect wildlife, and flag hazards using computer vision. Travel safer in the Himalayas.",
-    gradient: "from-gradient-end to-accent",
-  },
-  {
-    icon: Brain,
-    title: "Multilingual AI Chatbot",
-    description:
-      "Get instant support in Hindi, Kumaoni, Garhwali, and more. Cultural insights, local tips, and 24/7 assistance in your language.",
-    gradient: "from-accent to-gradient-start",
-  },
-  {
-    icon: TrendingUp,
-    title: "Sentiment & Feedback Analysis",
-    description:
-      "Understand traveler emotions through reviews. Help improve services and highlight what matters most to visitors.",
-    gradient: "from-gradient-start via-gradient-mid to-gradient-end",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Features = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: MapPin,
+      titleKey: "features.1.title",
+      descKey: "features.1.desc",
+      gradient: "from-gradient-start to-gradient-mid",
+    },
+    {
+      icon: Users,
+      titleKey: "features.2.title",
+      descKey: "features.2.desc",
+      gradient: "from-gradient-mid to-gradient-end",
+    },
+    {
+      icon: Shield,
+      titleKey: "features.3.title",
+      descKey: "features.3.desc",
+      gradient: "from-gradient-end to-accent",
+    },
+    {
+      icon: Brain,
+      titleKey: "features.4.title",
+      descKey: "features.4.desc",
+      gradient: "from-accent to-gradient-start",
+    },
+    {
+      icon: TrendingUp,
+      titleKey: "features.5.title",
+      descKey: "features.5.desc",
+      gradient: "from-gradient-start via-gradient-mid to-gradient-end",
+    },
+  ];
+
   return (
     <section id="features" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Powered by AI</span>
+            <span className="gradient-text">{t("features.title")}</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Five intelligent services transforming Uttarakhand tourism
+            {t("features.subtitle")}
           </p>
         </div>
 
@@ -70,10 +68,10 @@ export const Features = () => {
 
                 {/* Content */}
                 <h3 className="text-xl sm:text-2xl font-semibold mb-3 group-hover:gradient-text transition-colors">
-                  {feature.title}
+                  {t(feature.titleKey)}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
+                  {t(feature.descKey)}
                 </p>
               </div>
             );

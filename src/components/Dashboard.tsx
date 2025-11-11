@@ -1,17 +1,20 @@
 import { Card } from "@/components/ui/card";
 import { BarChart, LineChart, Activity, Users, MapPin, TrendingUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Dashboard = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="demo" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Live <span className="gradient-text">Intelligence Dashboard</span>
+            {t("dashboard.title")}
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Real-time analytics and insights for smarter tourism management
+            {t("dashboard.subtitle")}
           </p>
         </div>
 
@@ -53,7 +56,7 @@ export const Dashboard = () => {
             {/* Tourist Density Heatmap */}
             <Card className="p-6 sm:p-8 glass-card">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl sm:text-2xl font-semibold">Tourist Density Heatmap</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold">{t("dashboard.density")}</h3>
                 <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
               <div className="space-y-4">
@@ -82,7 +85,7 @@ export const Dashboard = () => {
             {/* Crowd Prediction Chart */}
             <Card className="p-6 sm:p-8 glass-card">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl sm:text-2xl font-semibold">48hr Crowd Prediction</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold">{t("dashboard.prediction")}</h3>
                 <LineChart className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
               <div className="h-64 flex items-end justify-between space-x-2">
@@ -95,16 +98,14 @@ export const Dashboard = () => {
                 ))}
               </div>
               <div className="flex justify-between mt-4 text-xs sm:text-sm text-muted-foreground">
-                <span>Today</span>
-                <span>Tomorrow</span>
-                <span>Day 3</span>
+                <span>{t("dashboard.next7days")}</span>
               </div>
             </Card>
 
             {/* Sentiment Analysis */}
             <Card className="p-6 sm:p-8 glass-card">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl sm:text-2xl font-semibold">Sentiment Analysis</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold">{t("dashboard.sentiment")}</h3>
                 <Activity className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
               <div className="flex items-center justify-center h-48">
@@ -140,7 +141,7 @@ export const Dashboard = () => {
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-4xl font-bold gradient-text">92%</span>
-                    <span className="text-sm text-muted-foreground mt-1">Positive</span>
+                    <span className="text-sm text-muted-foreground mt-1">{t("dashboard.positive")}</span>
                   </div>
                 </div>
               </div>

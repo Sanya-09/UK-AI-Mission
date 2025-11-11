@@ -8,11 +8,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Header = () => {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [language, setLanguage] = useState("en");
+  const { language, setLanguage, t } = useLanguage();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -63,21 +64,21 @@ export const Header = () => {
               onClick={() => scrollToSection("demo")}
               className="text-sm lg:text-base"
             >
-              Demo
+              {t("nav.demo")}
             </Button>
             <Button
               variant="ghost"
               onClick={() => scrollToSection("features")}
               className="text-sm lg:text-base"
             >
-              Features
+              {t("nav.features")}
             </Button>
             <Button
               variant="ghost"
               onClick={() => scrollToSection("impact")}
               className="text-sm lg:text-base"
             >
-              Impact
+              {t("nav.impact")}
             </Button>
             <Button
               variant="ghost"
@@ -85,7 +86,7 @@ export const Header = () => {
               className="text-sm lg:text-base"
             >
               <Car className="w-4 h-4 mr-2" />
-              Rentals
+              {t("nav.rentals")}
             </Button>
           </nav>
 
@@ -106,7 +107,7 @@ export const Header = () => {
                   <WifiOff className="w-4 h-4 text-destructive" />
                 )}
                 <span className={isOnline ? "text-primary" : "text-destructive"}>
-                  {isOnline ? "Online" : "Offline"}
+                  {isOnline ? t("status.online") : t("status.offline")}
                 </span>
               </div>
             </div>

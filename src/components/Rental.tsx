@@ -1,10 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Car, Bike, Users, MapPin, Phone } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const rentalServices = [
   {
-    type: "Scooty Rental",
+    titleKey: "rental.scooty",
+    descKey: "rental.scooty.desc",
     icon: Bike,
     price: "₹400-600/day",
     providers: [
@@ -14,7 +16,8 @@ const rentalServices = [
     color: "from-gradient-start to-gradient-mid",
   },
   {
-    type: "Bike Rental",
+    titleKey: "rental.bike",
+    descKey: "rental.bike.desc",
     icon: Bike,
     price: "₹800-1500/day",
     providers: [
@@ -24,7 +27,8 @@ const rentalServices = [
     color: "from-gradient-mid to-gradient-end",
   },
   {
-    type: "Car Rental",
+    titleKey: "rental.car",
+    descKey: "rental.car.desc",
     icon: Car,
     price: "₹2000-4000/day",
     providers: [
@@ -34,7 +38,8 @@ const rentalServices = [
     color: "from-gradient-end to-accent",
   },
   {
-    type: "Taxi Services",
+    titleKey: "rental.taxi",
+    descKey: "rental.taxi.desc",
     icon: Users,
     price: "₹15-20/km",
     providers: [
@@ -46,16 +51,18 @@ const rentalServices = [
 ];
 
 export const Rental = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="rental" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Rental Services</span>
+            <span className="gradient-text">{t("rental.title")}</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Affordable transportation options for your Uttarakhand journey
+            {t("rental.subtitle")}
           </p>
         </div>
 
@@ -77,8 +84,9 @@ export const Rental = () => {
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-semibold">{service.type}</h3>
-                      <p className="text-primary font-medium">{service.price}</p>
+                      <h3 className="text-xl sm:text-2xl font-semibold">{t(service.titleKey)}</h3>
+                      <p className="text-xs text-muted-foreground">{t(service.descKey)}</p>
+                      <p className="text-primary font-medium mt-1">{service.price}</p>
                     </div>
                   </div>
                 </div>
@@ -117,25 +125,20 @@ export const Rental = () => {
         {/* Info Box */}
         <div className="glass-card p-6 sm:p-8 rounded-2xl max-w-4xl mx-auto text-center">
           <h3 className="text-xl sm:text-2xl font-semibold mb-3">
-            Special Services for Families & Seniors
+            {t("rental.special")}
           </h3>
-          <p className="text-muted-foreground mb-6">
-            We offer comfortable taxi services with experienced drivers for kids and elderly
-            travelers. All vehicles are equipped with safety features and drivers are trained in
-            first aid and local navigation.
-          </p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-primary"></div>
-              <span className="text-sm">Child-friendly seats available</span>
+              <span className="text-sm">{t("rental.special1")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-primary"></div>
-              <span className="text-sm">Senior citizen discounts</span>
+              <span className="text-sm">{t("rental.special2")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-primary"></div>
-              <span className="text-sm">24/7 customer support</span>
+              <span className="text-sm">{t("rental.special3")}</span>
             </div>
           </div>
         </div>

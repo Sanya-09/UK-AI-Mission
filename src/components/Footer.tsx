@@ -4,8 +4,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Footer = () => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -32,8 +34,7 @@ export const Footer = () => {
               <span className="text-xl font-bold gradient-text">SmartTour AI</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Empowering Uttarakhand tourism with AI-driven intelligence. Personalized journeys,
-              crowd predictions, and smart insights for unforgettable Himalayan adventures.
+              {t("hero.subtitle")}
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2 text-muted-foreground">
@@ -53,27 +54,32 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("footer.links")}</h3>
             <ul className="space-y-2">
-              {["Features", "Dashboard", "Impact", "Rentals", "Privacy Policy", "Terms of Service"].map(
-                (link, index) => (
-                  <li key={index}>
-                    <button className="text-muted-foreground hover:text-primary transition-colors">
-                      {link}
-                    </button>
-                  </li>
-                )
-              )}
+              {[
+                { key: "nav.features", label: t("nav.features") },
+                { key: "nav.demo", label: t("nav.demo") },
+                { key: "nav.impact", label: t("nav.impact") },
+                { key: "nav.rentals", label: t("nav.rentals") },
+                { key: "footer.privacy", label: t("footer.privacy") },
+                { key: "footer.terms", label: t("footer.terms") },
+              ].map((link, index) => (
+                <li key={index}>
+                  <button className="text-muted-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Form */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("footer.contact")}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="text"
-                placeholder="Your Name"
+                placeholder={t("footer.name")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -81,14 +87,14 @@ export const Footer = () => {
               />
               <Input
                 type="email"
-                placeholder="Your Email"
+                placeholder={t("footer.email")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="bg-background border-border"
               />
               <Textarea
-                placeholder="Your Message"
+                placeholder={t("footer.message")}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
@@ -99,7 +105,7 @@ export const Footer = () => {
                 type="submit"
                 className="w-full bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end text-white hover:opacity-90"
               >
-                Send Message
+                {t("footer.send")}
               </Button>
             </form>
           </div>
@@ -110,7 +116,7 @@ export const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <p className="text-sm text-muted-foreground text-center sm:text-left">
-              Powered by AI Mission Uttarakhand | SmartTour AI 2025
+              {t("footer.tagline")}
             </p>
 
             {/* Social Links */}

@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-uttarakhand.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Hero = () => {
+  const { t } = useLanguage();
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -31,21 +33,19 @@ export const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            <span className="text-sm font-medium">AI Mission Hackathon 2025</span>
+            <span className="text-sm font-medium">{t("hero.badge")}</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="gradient-text">Empowering Uttarakhand</span>
+            <span className="gradient-text">{t("hero.title1")}</span>
             <br />
-            <span className="text-foreground">Tourism with Intelligence</span>
+            <span className="text-foreground">{t("hero.title2")}</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Experience personalized Himalayan journeys powered by AI. Real-time
-            crowd predictions, visual recognition for safety, and smart insights
-            for unforgettable adventures.
+            {t("hero.subtitle")}
           </p>
 
           {/* CTAs */}
@@ -55,7 +55,7 @@ export const Hero = () => {
               onClick={() => scrollToSection("demo")}
               className="w-full sm:w-auto bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end text-white hover:opacity-90 transition-opacity text-base sm:text-lg px-8 py-6"
             >
-              Explore Demo
+              {t("hero.cta1")}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button
@@ -65,27 +65,27 @@ export const Hero = () => {
               className="w-full sm:w-auto border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors text-base sm:text-lg px-8 py-6"
             >
               <Play className="mr-2 w-5 h-5" />
-              See How It Works
+              {t("hero.cta2")}
             </Button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-12">
             {[
-              { value: "50K+", label: "Tourists Served" },
-              { value: "95%", label: "Accuracy Rate" },
-              { value: "24/7", label: "AI Assistance" },
-              { value: "12+", label: "Languages" },
+              { valueKey: "hero.stat1.value", labelKey: "hero.stat1.label" },
+              { valueKey: "hero.stat2.value", labelKey: "hero.stat2.label" },
+              { valueKey: "hero.stat3.value", labelKey: "hero.stat3.label" },
+              { valueKey: "hero.stat4.value", labelKey: "hero.stat4.label" },
             ].map((stat, index) => (
               <div
                 key={index}
                 className="glass-card p-4 sm:p-6 rounded-xl hover:scale-105 transition-transform"
               >
                 <div className="text-2xl sm:text-3xl font-bold gradient-text">
-                  {stat.value}
+                  {t(stat.valueKey)}
                 </div>
                 <div className="text-sm sm:text-base text-muted-foreground mt-1">
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </div>
               </div>
             ))}
