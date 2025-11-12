@@ -171,6 +171,22 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
     "footer.support": "Support",
+    "footer.feedback": "Feedback",
+    "footer.feedback.desc": "Scan QR or click to share your experience",
+    "footer.feedback.link": "Share Feedback",
+    
+    // Maps
+    "maps.title": "Interactive Map",
+    "maps.subtitle": "Explore Uttarakhand destinations",
+    "maps.search": "Search locations...",
+    
+    // Weather
+    "weather.title": "Weather Forecast",
+    "weather.subtitle": "Plan your trip with live weather updates",
+    "weather.today": "Today",
+    "weather.humidity": "Humidity",
+    "weather.wind": "Wind Speed",
+    "weather.visibility": "Visibility",
   },
   hi: {
     // Header
@@ -314,7 +330,7 @@ const translations: Record<Language, Record<string, string>> = {
     "emergency.altitude4": "आपातकालीन संपर्क ऑफलाइन सहेजें",
     
     // Footer
-    "footer.tagline": "AI मिशन उत्तराखंड द्वारा संचालित | स्मार्टटूर AI 2025",
+    "footer.tagline": "AI मिशन उत्तराखंड द्वारा संचालित | SmartTour AI 2025",
     "footer.contact": "संपर्क करें",
     "footer.name": "आपका नाम",
     "footer.email": "ईमेल पता",
@@ -324,6 +340,22 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "गोपनीयता नीति",
     "footer.terms": "सेवा की शर्तें",
     "footer.support": "सहायता",
+    "footer.feedback": "प्रतिक्रिया",
+    "footer.feedback.desc": "अपना अनुभव साझा करने के लिए QR स्कैन करें या क्लिक करें",
+    "footer.feedback.link": "प्रतिक्रिया साझा करें",
+    
+    // Maps
+    "maps.title": "इंटरैक्टिव मैप",
+    "maps.subtitle": "उत्तराखंड के गंतव्यों का अन्वेषण करें",
+    "maps.search": "स्थान खोजें...",
+    
+    // Weather
+    "weather.title": "मौसम पूर्वानुमान",
+    "weather.subtitle": "लाइव मौसम अपडेट के साथ अपनी यात्रा की योजना बनाएं",
+    "weather.today": "आज",
+    "weather.humidity": "आर्द्रता",
+    "weather.wind": "हवा की गति",
+    "weather.visibility": "दृश्यता",
   },
   gu: {
     // Header
@@ -467,7 +499,7 @@ const translations: Record<Language, Record<string, string>> = {
     "emergency.altitude4": "કટોકટી સંપર્કો ઓફલાઇન સાચવો",
     
     // Footer
-    "footer.tagline": "AI મિશન ઉત્તરાખંડ દ્વારા સંચાલિત | સ્માર્ટટૂર AI 2025",
+    "footer.tagline": "AI મિશન ઉત્તરાખંડ દ્વારા સંચાલિત | SmartTour AI 2025",
     "footer.contact": "સંપર્ક કરો",
     "footer.name": "તમારું નામ",
     "footer.email": "ઇમેઇલ સરનામું",
@@ -477,6 +509,18 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "ગોપનીયતા નીતિ",
     "footer.terms": "સેવાની શરતો",
     "footer.support": "સહાય",
+    "footer.feedback": "પ્રતિસાદ",
+    "footer.feedback.desc": "તમારો અનુભવ શેર કરવા માટે QR સ્કેન કરો અથવા ક્લિક કરો",
+    "footer.feedback.link": "પ્રતિસાદ શેર કરો",
+    "maps.title": "ઇન્ટરેક્ટિવ મેપ",
+    "maps.subtitle": "ઉત્તરાખંડ સ્થળોનું અન્વેષણ કરો",
+    "maps.search": "સ્થાનો શોધો...",
+    "weather.title": "હવામાન આગાહી",
+    "weather.subtitle": "લાઇવ હવામાન અપડેટ્સ સાથે તમારી યાત્રાની યોજના બનાવો",
+    "weather.today": "આજે",
+    "weather.humidity": "ભેજ",
+    "weather.wind": "પવન ગતિ",
+    "weather.visibility": "દૃશ્યતા",
   },
   ku: {
     // Header - Kumaoni

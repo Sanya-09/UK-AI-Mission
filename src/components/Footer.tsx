@@ -3,8 +3,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, QrCode } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import feedbackQR from "@/assets/feedback-qr.jpg";
 
 export const Footer = () => {
   const { t } = useLanguage();
@@ -23,6 +24,37 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Feedback Section */}
+        <div className="mb-12 text-center">
+          <div className="inline-block glass-card p-6 rounded-xl">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="text-left">
+                <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                  <QrCode className="w-5 h-5 text-primary" />
+                  {t("footer.feedback")}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 max-w-xs">
+                  {t("footer.feedback.desc")}
+                </p>
+                <Button
+                  size="sm"
+                  className="bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end text-white hover:opacity-90"
+                  onClick={() => window.open("https://forms.gle/smarttourai", "_blank")}
+                >
+                  {t("footer.feedback.link")}
+                </Button>
+              </div>
+              <div className="relative w-32 h-32 rounded-lg overflow-hidden border-2 border-primary/20">
+                <img
+                  src={feedbackQR}
+                  alt="Feedback QR Code"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
           {/* About Section */}
