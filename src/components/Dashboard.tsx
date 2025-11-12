@@ -16,6 +16,11 @@ export const Dashboard = () => {
           <p className="text-lg sm:text-xl text-muted-foreground">
             {t("dashboard.subtitle")}
           </p>
+          <div className="mt-4 p-3 rounded-lg bg-primary/10 border border-primary/20">
+            <p className="text-sm text-primary font-medium">
+              🌐 Powered by Google Places API for real-time crowd prediction at popular tourist destinations
+            </p>
+          </div>
         </div>
 
         {/* Dashboard Preview */}

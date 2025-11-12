@@ -4,7 +4,10 @@ import { Features } from "@/components/Features";
 import { Dashboard } from "@/components/Dashboard";
 import { Impact } from "@/components/Impact";
 import { HowItWorks } from "@/components/HowItWorks";
+import { Accommodation } from "@/components/Accommodation";
+import { PopularPlaces } from "@/components/PopularPlaces";
 import { Rental } from "@/components/Rental";
+import { Emergency } from "@/components/Emergency";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -16,7 +19,10 @@ const Index = () => {
       <Dashboard />
       <Impact />
       <HowItWorks />
+      <Accommodation />
+      <PopularPlaces />
       <Rental />
+      <Emergency />
       <Footer />
     </div>
   );
